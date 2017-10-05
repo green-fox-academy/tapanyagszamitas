@@ -4,18 +4,20 @@
 
 main()
 {
-   int a = 3;
-
-   /* Storing result of addition in variable a */
-
-   a = a + 10;
-
-   /** Not recommended because original value of a is lost
-    *  and you may be using it somewhere in code considering it
-    *  as it was entered by the user.
-    */
-
-   printf("Sum of a and b = %d\n", a);
-
-   return 0;
+   int a = 0;
+while (a < 5) {
+    a += 1;
+    printf("%d\n", a);
 }
+
+do {
+    a += 1;
+    printf("%d\n", a);
+} while (a < 20);
+
+for (a = 0; a < 100; a++)
+    printf("%d\n", a);
+}
+
+
+
