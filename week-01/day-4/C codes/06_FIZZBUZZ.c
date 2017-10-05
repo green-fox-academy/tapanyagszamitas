@@ -1,28 +1,29 @@
 #include <stdio.h>
 
-int main() {
-	// Write a program that prints the numbers from 1 to 100.
-	// But for multiples of three print "Fizz" instead of the number
-	// and for the multiples of five print "Buzz".
-	// For numbers which are multiples of both three and five print "FizzBuzz".
+int main () {
 
-int a = 0;
+   /* local variable definition */
+   char grade = 'B';
 
-while (a < 100)
-    {a += 1;
+   switch(grade) {
+      case 'A' :
+         printf("Excellent!\n" );
+         break;
+      case 'B' :
+      case 'C' :
+         printf("Well done\n" );
+         break;
+      case 'D' :
+         printf("You passed\n" );
+         break;
+      case 'F' :
+         printf("Better try again\n" );
+         break;
+      default :
+         printf("Invalid grade\n" );
+   }
 
-    if(a%3==0 && a%5==0)
-    {        printf("FizzBuzz \n");}
+   printf("Your grade is  %c\n", grade );
 
-    else if(a%5==0)
-    {        printf("Fizz \n");}
-
-    else if (a%3==0 )
-    {       printf("Buzz \n");}
-
-    else
-    {       printf("%d\n", a);}
-    }
-return 0;
-	}
-
+   return 0;
+}

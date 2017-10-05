@@ -13,16 +13,18 @@ int a = -1;
 
 while (a < 100) {
     a += 1;
+printf("a\n");
+    /*
 
     switch(a % 2){
         case 0:
-            printf("Number is Even\n");
+            printf("Fizz\n");
             break;
 
         case 1:
-            printf("Number is Odd\n");
+            printf("a\n");
             break;
-}
+*/}
 }
 
  return 0;
