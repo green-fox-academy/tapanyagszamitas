@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1507584673 source:c:\users\farkas ildikó\documents\greenfox\egyeb\untitled1.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<math.h>
+

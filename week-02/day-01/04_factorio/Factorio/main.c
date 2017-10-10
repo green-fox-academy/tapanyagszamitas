@@ -1,23 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "par_for_factorio.h"
-
-// create a function called `factorio`
-// that returns it's input's factorial with and without recursion
-// again the parameters value should be stored in a .h file
-//
 
 int main()
 {
 
-    return 0;
+    int char a = 'a';
+    int char b = 'F';
+    int char c = '7';
+
+    printf( "%c\n", toupper(a) );
+
+
+   return 0;
 }
 
-void factorio(int number1)
-{
- int result = 1;
 
-    for (int i = 1; i <= n; i++) {
-        result = result * i;
-
-}
