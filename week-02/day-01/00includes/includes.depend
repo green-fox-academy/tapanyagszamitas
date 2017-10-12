@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1507555863 source:c:\users\farkas ildikó\documents\greenfox\tapanyagszamitas\week-02\day-01\includes\main.c
-	<string.h>
-	<stdint.h>
-	"another_file.h"
-
-1507555671 c:\users\farkas ildikó\documents\greenfox\tapanyagszamitas\week-02\day-01\includes\another_file.h
-
