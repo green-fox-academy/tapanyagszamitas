@@ -16,9 +16,9 @@ int x = 0;
 	x = pow(2, floor(f));
 int d = 0;
 	d = n- x;
-	d=d*2+1 ;
+	d = d * 2 + 1 ;
 
-printf("\n Finally the survivor was the lucky nr. %d !!!!!!!!!!!!!!",d);
+printf("\n Finally the survivor was the lucky nr. %d !!",d);
 
 return 0;
 }

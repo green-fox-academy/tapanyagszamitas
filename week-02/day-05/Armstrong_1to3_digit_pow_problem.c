@@ -3,14 +3,14 @@
 
 int main(){
 // check the Armstrong number 3digits
-int a = 153;
-int count =0;
-int b = 0;
+float a = 153;
+float count =0;
+float b = 0;
 //printf(" Enter an integer number to check, it is an Armstrong number or not\n");
 //scanf("%d", &a);
-int aa = 0;
-int bb = 0;
-int cc = 0;
+float aa = 0;
+float bb = 0;
+float cc = 0;
 
 b = a;
 
