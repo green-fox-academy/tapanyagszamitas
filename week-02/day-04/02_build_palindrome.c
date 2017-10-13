@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char *create_palindrom(char word1[]);
-
 int main()
 {
    char arr[100];
