@@ -4,6 +4,19 @@ int print_welcome_screen();
 int main()
 {
 print_welcome_screen();
+
+char enter = 0;
+while (enter != '\r' && enter != '\n') { enter = getchar(); }
+printf("Please enter your commands!\n");
+
+char collect_data[50];
+scanf( "%s", collect_data);
+
+
+printf( "collect data %s", collect_data);
+
+
+
   return 0;
 }
 
