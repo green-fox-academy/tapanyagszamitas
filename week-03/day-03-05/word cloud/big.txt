@@ -1,0 +1,14 @@
+C C C C++ for int char int a = 0; int b = 0; functions strings swcitch case clean code raspberry_pi arduio robots machines CNC cpb research job Atmel_AVR STM32L4/F7 57A71C  hexadecimal decimal binary coding building structure sfety GitHub GeenfoxAcademy career coding 5744412 The Static cohort is the 2017S05 (that is the 5th semester of GreenFoxAcademy (GFA) 2017 academic year) starting October 2nd 2017 and ending, Februar 12th 2017. The technical stack for this cohort covers Wiki - collection of your daily learning materials
+Class kanban - for managing our daily issues
+Slack - to communicate ideas on channels
+Github - GreenFox - overall tracking of our course
+Calendar - HTML ICAL
+Styleguide - what is this vis-a-vis students
+IDE installation guide - step-by-step IDE installation guides
+Account information - database of github and trello usernames
+The course consists these main phases:
+
+Basics - introducing the foundations of software development
+Orientation - learning the core concepts in programming, and then expanding deeper into the facilities and opportunities afforded in microcontroller programming
+Project - We form working groups that are working independently with mentor supervision on a lifelike project.
+Description of projects

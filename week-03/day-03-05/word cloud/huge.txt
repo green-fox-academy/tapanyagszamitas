@@ -1,0 +1,83 @@
+Greenfox Greenfox Greenfox Greenfox Greenfox Greenfox Greenfox Greenfox Greenfox Greenfox Greenfox Greenfox Greenfox  C C C C++ for int char int a = 0; int b = 0; functions strings swcitch case clean code raspberry_pi arduio robots machines CNC cpb research job Atmel_AVR STM32L4/F7 57A71C  hexadecimal decimal binary coding building structure sfety GitHub GeenfoxAcademy career coding 5744412 The Static cohort is the 2017S05 (that is the 5th semester of GreenFoxAcademy (GFA) 2017 academic year) starting October 2nd 2017 and ending, Februar 12th 2017. The technical stack for this cohort covers Wiki - collection of your daily learning materials
+Academy Academy Academy Academy Academy Academy   Class kanban - for managing our daily issues
+Slack - to communicate ideas on channels
+Github - GreenFox - overall tracking of our course
+Calendar - HTML ICAL
+Styleguide - what is this vis-a-vis students
+ installation guide - step-by-step  installation guides
+Account information - database of github and trello usernames
+The course consists these main phases:
+
+Basics - introducing the foundations of software development
+Orientation - learning the core concepts in programming, and then expanding deeper into the facilities and opportunities afforded in microcontroller programming
+Project - We form working groups that are working independently with mentor supervision on a lifelike project.
+Description of projects Integrated development environment installation guide
+
+1. Code::Blocks
+
+Code::Blocks is an open source, cross platform, free C, C++ and Fortran IDE. We will use it to compile and debug C code.
+
+Download the latest version from here and install it.
+
+a)  users
+
+Make sure that you download the package which contains the MinGW compiler!
+
+b) Mac OS X users
+
+Currently Code::Blocks 16.01 for Mac is currently not available due to the lack of Mac developers. The latest available version is 13.12. This is not a big deal, it will do the job.
+
+2. Atmel Studio
+
+Atmel Studio is a free, Visual Studio based IDE for Atmel AVR microcontrollers. We will use it to comiple, debug AVR specific C code and to program the microcontroller.
+
+a)  users
+
+Donload the latest version from here and install it. The installation process is pretty straight forward, but neeeds quite a lot of time. Be patient and install all drivers (you will be asked a few times in popup ).
+
+b) Linux and Mac OS X users
+
+Atmel Studio is Visual Studio based, hence it will only run on  operating systems. You have to install a  virtual machine to run this . The installation will need about 30-40GB of free space on your machine.
+
+ 10
+
+You can download a full 90 day trial version of  10 enterprise from here.  account registration is needed. Download the 32-bit version of  10 in the ISO - Enterprise file type!
+
+VirtualBox
+
+VirtualBox is a general-purpose virtualizer, which can run different operating systems on your machine.
+
+Download the latest versions of
+
+platform package
+VirtualBox Extension Pack
+from here.
+
+Install the platform package then install the extension pack.
+
+Open VirtualBox and create a new virtual machine. Here is a video about the configuration process. The video does not mention the USB setup! See below the description (marked with bold text).
+
+Do the followings in the virtual machine creation window:
+
+Give it a name.
+Choose  10(32-bit).
+Set the memory size corresponding to your real machine memory size. A minimum of 2GB is recommended, but more is better. More than 4GB makes no sense because we will install a 32-bit operating system.
+Make a new virtual hard drive with 32GB minimum capacity. We recommend to set it as dynamically allocated storage.
+After that the new virtual machine will appear in the list. Click on it with the right mouse button and open the settings window.
+
+In the System menu on the Processor tab assign all of the processors that your real machine has. For example if you have an i7 processor which has 4 physical cores than assign 4 processors. Make sure that the "Enable PAE/NX" option is checked.
+In the USB menu choose the USB 2.0 (xHCI) Controller option.
+In the Storage menu and add the downloaded  10 ISO image file as a CD/DVD drive.
+Now if you run the virtual machine the  10 installation will start. For more details see the video linked above.
+
+After the installation you have a fully functioning  10 virtual machine. Now you can download Atmel Studio and install it in the virtual machine (details are in the " users" section).
+
+3. System Workbench for STM32
+
+The System Workbench toolchain, called SW4STM32, is a free multi-OS software development environment based on Eclipse, which supports the full range of STM32 microcontrollers and associated boards. We will use it to compile, debug and program embedded C code on various SMT32 discovery boards.
+
+It is based on Eclipse which is an open source  and it support , linux and Max OS X.
+
+Download SW4STM32 from here. You have to be logged in to http://www.openstm32.org to reach the download section, so you have to register first. The installation instructions can also be found on the download page.
+
+We will configure the  together during the first STM32 workshop.

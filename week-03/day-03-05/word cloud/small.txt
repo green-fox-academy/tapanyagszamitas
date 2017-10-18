@@ -1,0 +1,1 @@
+C for int char int_a=0; int_b=0; functions strings swcitch case clean code while 
