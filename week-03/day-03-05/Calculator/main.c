@@ -9,11 +9,16 @@ char enter = 0;
 while (enter != '\r' && enter != '\n') { enter = getchar(); }
 printf("Please enter your commands!\n");
 
-char collect_data[50];
-scanf( "%s", collect_data);
+char collect_data[100] = " ";
+
+scanf( "%s %s %s", &collect_data[1], &collect_data[40], &collect_data[60]);
 
 
-printf( "collect data %s", collect_data);
+    int i;
+    for(i=0; i<=99; i++){
+    printf("%c\n", collect_data[i]);
+    }
+
 
 
 
