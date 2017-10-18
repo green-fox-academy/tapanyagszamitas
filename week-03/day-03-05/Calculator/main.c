@@ -1,14 +1,13 @@
 #include <stdio.h>
-int print_welcome_screen()
+int print_welcome_screen();
 
 int main()
 {
-
-print_welcome_screen;
+print_welcome_screen();
   return 0;
 }
 
-int print_welcome_screen
+int print_welcome_screen()
 {
 
 
@@ -37,6 +36,4 @@ int print_welcome_screen
 
 return main;
 }
-
-
 
