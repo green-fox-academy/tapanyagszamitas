@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 int print_welcome_screen();
 
 int main()
@@ -18,7 +20,6 @@ scanf( "%s", &firstnumber[1]);
 scanf( "%s", &opperator[1]);
 scanf( "%s", &lastnumber[1]);
 
-
 printf("firstnumber\n");
     int i;
     for(i=0; i<=9; i++){
@@ -35,10 +36,25 @@ printf("lastnumber\n");
     printf("%c\n", lastnumber[i3]);
     }
 
+char summation_if[] = "+";
+char multiplication_if[] = "*";
+char division_if[] = "/";
+char division_w_remainder_if[] = "%";
+char squaring_if[] = "<";
+
+
+printf("summation_if\n");
+     int i4;
+    for(i4=0; i4<=5; i4++){
+    printf("%c\n", summation_if[i4]);
+    }
 
 
 
 
+if((strcmp (opperator, summation_if ))==0)
+    printf( "szamolj te");
+else printf( "something is not ready,we need to work more. \n");
 
 
   return 0;
