@@ -22,30 +22,18 @@ printf("Please enter your commands!\n");
 char datainput[100]= " ";
 gets(datainput);
 
-char array0[10] = " "; // num 1
-char array1[10] = " ";// operator
-char array2[10] = " "; // num 2
+char array0[100] = " "; // num 1
+char array1[100] = " ";// operator
+char array2[100] = " "; // num 2
 
 
 sscanf( datainput, "%s %s %s",array0, array1, array2);
 
-printf("array2\n");
+printf("array1\n");
     int i2;
     for(i2=0; i2<=9; i2++){
-    printf("%c\n", array2[i2]);
+    printf("%c\n", array1[i2]);
     }
-
-
-int num1 = 0;
-int num2 = 0;
-int opperator = 0;
-int num3 = 0;
-num1 = atoi(array0);
-num2 = atoi(array1);
-num3 = num1+num2;
-printf("num 2= %d \n ", num2);
-
-
 
 
 
@@ -87,10 +75,11 @@ return main;
 
 int datatransfer_from_strings()
 {
-
-
-
-
+/*
+char array0[100] =
+char array1[100] = " ";// operator
+char array2[100] = " "; // num 2
+*/
 
     return main;
 }
