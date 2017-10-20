@@ -1,48 +1,62 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <math.h>
+#include <windows.h>
+#include "declarations.h"
 
-int print_welcome_screen();
-int data_input();
-int datatransfer_from_strings();
+COORD coord = {0,0}; // coord struct for setting print location on stdout
+CONSOLE_SCREEN_BUFFER_INFO SBInfo; // to get cursor's current location
 
-int main()
-{
-print_welcome_screen();
-data_input();
 
-  return 0;
-}
-int data_input()
+
+
+void data_input()
 {
 
 char enter = 0;
-while (enter != '\r' && enter != '\n') { enter = getchar(); }
+while (enter != '\r' && enter != '\n')
+    {
+    enter = getchar();
+    }
+
 printf("Please enter your commands!\n");
 
 char datainput[100]= " ";
 gets(datainput);
 
-char array0[100] = " "; // num 1
-char array1[100] = " ";// operator
-char array2[100] = " "; // num 2
+char array0[10] = " "; // num 1
+char array1[10] = " ";// operator
+char array2[10] = " "; // num 2
 
 
 sscanf( datainput, "%s %s %s",array0, array1, array2);
 
-printf("array1\n");
+
+
+
+
+printf("array0\n");
     int i2;
     for(i2=0; i2<=9; i2++){
-    printf("%c\n", array1[i2]);
+    printf("%c\n", array2[i2]);
     }
 
 
+int num1 = 0;
+int num2 = 0;
+int opperator = 0;
+int num3 = 0;
+num1 = atoi(array0);
+num2 = atoi(array2);
+num3 = num1+num2;
+printf("num3 %d \n ", num3);
 
+print_welcome_screen();
 
-
-
-
-    return main;
 }
+
+
 int print_welcome_screen()
 {
 
@@ -70,16 +84,7 @@ int print_welcome_screen()
         "Hit enter to start!\n"
         "====================================\n");
 
-return main;
+data_input();
 }
 
-int datatransfer_from_strings()
-{
-/*
-char array0[100] =
-char array1[100] = " ";// operator
-char array2[100] = " "; // num 2
-*/
 
-    return main;
-}
