@@ -3,60 +3,53 @@
 #include <string.h>
 #include <math.h>
 #include <windows.h>
-#include "declarations.h"
 
-COORD coord = {0,0}; // coord struct for setting print location on stdout
-CONSOLE_SCREEN_BUFFER_INFO SBInfo; // to get cursor's current location
+int print_welcome_screen();
+void data_input();
+void help();
+void clear_screan();
+void exit_program();
+void addition();
+float float_converter();
 
+int main()
+{
+print_welcome_screen();
+data_input();
 
-
-
+  return 0;
+}
 void data_input()
 {
 
 char enter = 0;
-while (enter != '\r' && enter != '\n')
-    {
-    enter = getchar();
-    }
-
+while (enter != '\r' && enter != '\n') { enter = getchar(); }
 printf("Please enter your commands!\n");
 
 char datainput[100]= " ";
 gets(datainput);
 
-char array0[10] = " "; // num 1
-char array1[10] = " ";// operator
-char array2[10] = " "; // num 2
+char array0[100] = " "; // num 1
+char array1[100] = " ";// operator
+char array2[100] = " "; // num 2
 
 
 sscanf( datainput, "%s %s %s",array0, array1, array2);
 
-
-
-
-
-printf("array0\n");
-    int i2;
-    for(i2=0; i2<=9; i2++){
-    printf("%c\n", array2[i2]);
+ if (!strcoll(array0, "help"))
+    {
+       help();
+    }else if (!strcoll(array0, "clear")) {
+        clear_screan();
+    }else if (!strcoll(array0, "exit")) {
+        exit_program();
+    }else if (!strcoll(array1, "+")) {
+        addition();
     }
 
 
-int num1 = 0;
-int num2 = 0;
-int opperator = 0;
-int num3 = 0;
-num1 = atoi(array0);
-num2 = atoi(array2);
-num3 = num1+num2;
-printf("num3 %d \n ", num3);
-
-print_welcome_screen();
-
+    data_input();
 }
-
-
 int print_welcome_screen()
 {
 
@@ -85,6 +78,37 @@ int print_welcome_screen()
         "====================================\n");
 
 data_input();
+}
+
+void help()
+{
+printf(" don't drink unwashed apple juice\n\n");
+
+data_input();
+
+}
+
+void clear_screan()
+{
+system ("cls");
+ data_input();
+
+}
+
+void exit_program()
+{
+ exit(0);
+}
+
+void addition(char array0[], char array2[])
+{
+float a0 = 0;
+float a3 = 0;
+
+
+
+printf(" result is %.0f\n", a0 + a3 );
+
 }
 
 
