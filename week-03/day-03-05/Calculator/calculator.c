@@ -102,12 +102,14 @@ void exit_program()
 
 void addition(char array0[], char array2[])
 {
-float a0 = 0;
-float a3 = 0;
+double a0 = 0;
+double a2 = 0;
+a0 = strtod(array0, NULL);
+printf("Float value : %4.8f\n", a0);
 
+a2 = atof(array2);
 
-
-printf(" result is %.0f\n", a0 + a3 );
+printf(" result is %f\n",  a2 );
 
 }
 
