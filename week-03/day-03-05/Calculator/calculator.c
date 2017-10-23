@@ -10,7 +10,13 @@ void help();
 void clear_screan();
 void exit_program();
 void addition();
-float float_converter();
+void subtraction();
+void multiplication();
+void division();
+void division_with_remainder();
+
+
+
 
 int main()
 {
@@ -23,7 +29,9 @@ void data_input()
 {
 
 char enter = 0;
-while (enter != '\r' && enter != '\n') { enter = getchar(); }
+while (enter != '\r' && enter != '\n') {
+        enter = getchar();
+        }
 printf("Please enter your commands!\n");
 
 char datainput[100]= " ";
@@ -44,7 +52,15 @@ sscanf( datainput, "%s %s %s",array0, array1, array2);
     }else if (!strcoll(array0, "exit")) {
         exit_program();
     }else if (!strcoll(array1, "+")) {
-        addition();
+        addition(array0, array2);
+    }else if (!strcoll(array1, "-")) {
+        subtraction(array0, array2);
+    }else if (!strcoll(array1, "*")) {
+        multiplication(array0, array2);
+    }else if (!strcoll(array1, "/")) {
+        division(array0, array2);
+    }else if (!strcoll(array1, "%")) {
+        division_with_remainder(array0, array2);
     }
 
 
@@ -82,7 +98,12 @@ data_input();
 
 void help()
 {
-printf(" don't drink unwashed apple juice\n\n");
+printf("=====================================\n"
+       "            Help menu                \n"
+       "enter the calculation in this form:  \n"
+       "number operator number               \n"
+       "additional commands: clear, exit     \n"
+       "=====================================\n");
 
 data_input();
 
@@ -102,15 +123,80 @@ void exit_program()
 
 void addition(char array0[], char array2[])
 {
-double a0 = 0;
-double a2 = 0;
-a0 = strtod(array0, NULL);
-printf("Float value : %4.8f\n", a0);
 
-a2 = atof(array2);
+float a = 0;
+float b = 0;
 
-printf(" result is %f\n",  a2 );
+a = atof(array0);
+b = atof(array2);
+printf(" value of a is %f\n", a);
+printf(" value of b is %f\n", b);
+printf(" result is %.2f\n",  a + b);
 
 }
 
+void subtraction(char array0[], char array2[])
+{
 
+float a = 0;
+float b = 0;
+
+a = atof(array0);
+b = atof(array2);
+printf(" value of a is %f\n", a);
+printf(" value of b is %f\n", b);
+printf(" result is %.2f\n",  a - b);
+
+}
+
+void multiplication(char array0[], char array2[])
+{
+
+float a = 0;
+float b = 0;
+
+a = atof(array0);
+b = atof(array2);
+printf(" value of a is %f\n", a);
+printf(" value of b is %f\n", b);
+printf(" result is %.2f\n",  a * b);
+
+}
+
+void division(char array0[], char array2[])
+{
+
+float a = 0;
+float b = 0;
+
+a = atof(array0);
+b = atof(array2);
+if (b == 0){
+    printf(" Dividing by 0 is non sense");
+    data_input();
+}
+else;
+printf(" value of a is %f\n", a);
+printf(" value of b is %f\n", b);
+printf(" result is %.2f\n",  a / b);
+
+}
+
+void division_with_remainder(char array0[], char array2[])
+{
+
+float a = 0;
+float b = 0;
+
+a = atof(array0);
+b = atof(array2);
+if (b == 0){
+    printf(" Dividing by 0 is non sense");
+    data_input();
+}
+else;
+printf(" value of a is %f\n", a);
+printf(" value of b is %f\n", b);
+printf(" result is %.2f\n", fmod( a , b));
+
+}
