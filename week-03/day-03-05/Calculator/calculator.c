@@ -14,14 +14,14 @@ void subtraction();
 void multiplication();
 void division();
 void division_with_remainder();
-
-
+void square();
+void square_root();
 
 
 int main()
 {
 print_welcome_screen();
-data_input();
+
 
   return 0;
 }
@@ -61,7 +61,12 @@ sscanf( datainput, "%s %s %s",array0, array1, array2);
         division(array0, array2);
     }else if (!strcoll(array1, "%")) {
         division_with_remainder(array0, array2);
+    }else if (!strcoll(array1, "^")) {
+        square(array0, array2);
+    }else if (!strcoll(array1, "<")) {
+        square_root(array0, array2);
     }
+
 
 
     data_input();
@@ -198,5 +203,34 @@ else;
 printf(" value of a is %f\n", a);
 printf(" value of b is %f\n", b);
 printf(" result is %.2f\n", fmod( a , b));
+
+}
+
+
+void square(char array0[], char array2[])
+{
+
+float a = 0;
+float b = 0;
+
+a = atof(array0);
+b = atof(array2);
+printf(" value of a is %f\n", a);
+printf(" value of b is %f\n", b);
+printf(" result is %.2f\n",  pow(a, b));
+
+}
+
+void square_root(char array0[], char array2[])
+{
+
+float a = 0;
+float b = 0;
+
+a = atof(array0);
+b = atof(array2);
+printf(" value of a is %f\n", a);
+printf(" value of b is %f\n", b);
+printf(" result is %.2f\n",  sqrt(b));
 
 }
