@@ -17,7 +17,7 @@ int main(){
 int a = 0;
 int b = 0;
 
-swap();
+swap(a,b);
 
 return 0;
 }
