@@ -14,8 +14,11 @@ printf(
 " -rd  Read todos from a file\n"
 " -l   Lists all the tasks\n"
 " -e   Empty the list\n"
-" -rm   Removes a task\n"
+" -rm  Removes a task\n"
 " -c   Completes a task\n"
 " -p   Add priority to a task \n"
-" -lp  Lists all the tasks by priority \n");
+" -lp  Lists all the tasks by priority \n"
+"\n"
+" enter your commands and press enter\n"
+ );
 }
