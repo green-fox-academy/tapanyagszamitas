@@ -1,37 +1,9 @@
+#include <stdlib.h>
 #include <stdio.h>
-#define MARKETPRICE 400
-
-
-struct house{
-char adress[50];
-float price;
-int room;
-float area;
-};
-
-*worth_to_buy (struct house *house)
-int i= 0;
-for( i = 0; i < ; i.++)
-
-
-
-
-
-int main(){
-
-struct house first_home = {"Budapest, Kis utca 23", 40000, 3, 70};
-struct house second_home = {"Budapest, Nagy utca 5", 50000, 2, 60};
-struct house third_home = {"Kecskemet, Kozepes utca 17", 23000, 5, 120};
-struct house fourth_home = {"Szolnok, Nagy utca 34", 17000, 3, 80};
-
-
-printf("first_home adress %s, ", first_home.adress );
-printf("price %.0f, ", first_home.price );
-printf("room number %d, ", first_home.room );
-printf("area %.0f, ", first_home.area );
-
-return 0;
-}
+#include <math.h>
+#include <string.h>
+#include <time.h>
+#include <dos.h>
 
 // TODO:
 // Create a struct that represents a House
@@ -41,11 +13,104 @@ return 0;
 //  - The number of rooms
 //  - The area of the house in square meters
 
+typedef struct House {
+    char adress[10];
+    float price;
+    int room_number;
+    float area;
+} House;
+
+// print out a house
+void house_printer(House house);
+
+//returns a house with random value members
+House house_builder(void);
+
 // TODO:
 // The market price of the houses is 400 EUR / square meters
 // Create a function that takes a pointer to a house and decides if it's worth to buy
 // (if the price is lower than the calculated price from it's area)
 
+int worth_it(House *house);
+
 // TODO:
 // Create a function that takes an array of houses (and it's length), and counts the
 // houses that are worth to buy.
+
+int worth_it_ev_array(House *houses, int size);
+
+// for seeding random generator with time
+void delay(int number_of_ms);
+
+int main()
+{
+    House house1 = house_builder();
+    house_printer(house1);
+    worth_it(&house1);
+
+    House house[100];
+
+    for (int i = 0; i < 5; i++) { // building 5 houses randomly
+        house[i] = house_builder();
+    }
+
+    printf("number of houses worth it: %d\n", worth_it_ev_array(house, 5));
+
+    return 0;
+}
+
+void house_printer(House house)
+{
+    printf("address: %s\n", house.adress);
+    printf("price: %.2f\n", house.price);
+    printf("number of rooms: %d\n", house.room_number);
+    printf("area: %.2f\n", house.area);
+}
+
+House house_builder(void)
+{
+    srand(time(NULL));
+
+    delay(1000);
+    House house;
+
+    strcpy(house.adress, "address");
+    house.price = (float) (rand() % 1000) * 50;
+    house.room_number = rand() % 10;
+    house.area = (float) (rand() % 100);
+
+    return house;
+}
+
+int worth_it(House *house)
+{
+    if (house->price / house->area < 400) {
+        printf("Worth it.\n");
+        return 1;
+    }
+    else {
+        printf("Doesn't worth it.\n");
+        return 0;
+    }
+}
+
+int worth_it_ev_array(House houses[], int size)
+{
+    int quantity_worht_it = 0;
+
+    for (int i = 0; i < size; i++) {
+        if (worth_it(&houses[i]))
+            quantity_worht_it++;
+    }
+
+    return quantity_worht_it;
+}
+
+void delay(int number_of_ms)
+{
+    // Storing start time
+    clock_t start_time = clock();
+
+    // looping till required time is not achieved
+    while (clock() < start_time + number_of_ms);
+}
