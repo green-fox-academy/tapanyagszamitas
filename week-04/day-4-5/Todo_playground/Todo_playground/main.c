@@ -91,7 +91,7 @@ int main(int argc, char** argv) {
     char file_name[] = "test.txt";
 
     //create_file(file_name);
-    read_file_fgets(file_name);
+    //read_file_fgets(file_name);
     //read_file_fscanf(file_name);
     //read_file_fscanf_tricky(file_name);
 }
