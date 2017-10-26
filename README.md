@@ -1,2 +1,2 @@
 # tapanyagszamitas
-this is my firs repository
+Hi I am Peter, and this is my repository at Greenfox Academy
