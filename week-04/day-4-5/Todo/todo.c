@@ -5,9 +5,9 @@
 
 int main()
 {
-menu();
+    menu();
 
-data_input();
+    data_input();
 
 
 
