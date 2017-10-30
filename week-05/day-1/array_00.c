@@ -11,7 +11,7 @@ int main()
     int l = 0;
     for (l = 0; l < 5; l++)
     {
-        array_of_five[l] = rand();
+        array_of_five[l] = rand()/100;
     }
 
     int g =0;
