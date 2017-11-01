@@ -42,6 +42,4 @@ We are getting familiar with C programming.
     +.                                         
     @                            
    @               
-  `+           
-  @          
-         
+       
