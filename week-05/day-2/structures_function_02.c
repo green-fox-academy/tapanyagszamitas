@@ -9,11 +9,11 @@
  *    * Get a number at a given index.
  *    * Replace a number at a given index if it exists.
  *
- * If the array is too smal, create a new one, copy everything into it, add the new element and delete the old array.
+ * If the array is too small, create a new one, copy everything into it, add the new element and delete the old array.
  *
  * Test in the main function whether everything works.
  */
-
+void last_place_adder(*array)
 struct storage
 {
     int array[50];
@@ -24,41 +24,14 @@ int main()
 {
 
 
-    struct storage macko;
-
-   int h = 0;
-    for(h = 0; h< 50; h++)
-    {
-        macko.array[h] = 0;
-        printf("\n%d", macko.array[h] );
-    }
-
-
-    int i = 0;
-    for(i = 0; i< 30; i++)
-    {
-        macko.array[i] = i+1 ;
-        printf("\n%d", macko.array[i] );
-    }
-
-    macko.a = sizeof(macko.array)/sizeof(macko.array[0]);
-    int count = 0;
-    int j = 0;
-    for(j = 0; j< macko.a; j++)
-    {
-        if(macko.array[j] != 0)
-        {
-            count = count+1;
-        }
-    }
-
-    printf("\n count %d", count);
-
-
-printf("\n\n a size %d", macko.a);
-
-
 
 
 return 0;
+}
+
+void last_place_adder(*array){
+
+array[50]=
+
+
 }
