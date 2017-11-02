@@ -22,6 +22,7 @@ typedef struct
 
 void add_last_number( storage *storage1, int input_value);
 void get_a_number( storage *storage1, int get_index, int *back_index_position);
+void changing_number(storage *storage1, int *return_value_after_change, int change_pos, int change_number);
 
 int main()
 {
@@ -76,11 +77,22 @@ int main()
     printf("\n get index return value %d", back_index_position);
 
 
+    int change_pos = 0;
+    int change_number = 0;
+    int return_value_after_change = 0;
+    printf("\nplease enter the position you want to change\n");
+    scanf("%d", &change_pos);
+    /*
+        if (change_pos >  storage1.counter)
+        {
+            printf("\n\nsorry, no such a number");
+        }
+        else {
 
+        }*/
+    changing_number(&storage1, &return_value_after_change, change_pos, change_number);
 
-
-
-
+printf("return value %d", return_value_after_change);
 
     return 0;
 }
@@ -111,3 +123,12 @@ void get_a_number( storage *storage1, int get_index, int *back_index_position)
     *back_index_position = storage1->array[get_index-1] ;
 
 }
+
+void changing_number(storage *storage1, int *return_value_after_change, int change_pos, int change_number)
+{
+    storage1->array[change_pos-1] = change_number;
+    *return_value_after_change = change_number;
+
+}
+
+
