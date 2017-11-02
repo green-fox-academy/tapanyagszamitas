@@ -14,19 +14,19 @@
  * Test in the main function whether everything works.
  */
 
-typedef struct storage
+typedef struct
 {
     int array[50];
     int counter;
-};
+} storage;
 
-void add_last_number( struct storage storage1 );
-
+void add_last_number( storage *storage1, int input_value);
+void get_a_number( storage *storage1, int get_index, int *back_index_position);
 
 int main()
 {
 
-    struct storage storage1;
+    storage storage1;
 
     storage1.counter = 0;
     printf("enter how many numbers you want to store in a row:\n");
@@ -39,13 +39,43 @@ int main()
     }
     printf("\n\nstorage1.counter %d\n\n", storage1.counter);
 
-    add_last_number(storage1);
 
-    for(int k = 0; k <  storage1.counter ; k++)
+    /*
+        int input_value = 0;
+
+        printf("\nEnter a new number to the end of the row\n");
+
+        scanf("%d", &input_value);
+
+
+
+
+        add_last_number(&storage1, input_value);
+
+        for(int k = 0; k <  storage1.counter ; k++)
+        {
+            printf("\n %d, %d", storage1.array[k], k);
+        }
+        printf("\n\nstorage1.counter %d\n\n", storage1.counter);
+
+    */
+
+
+    int get_index = 0;
+    int back_index_position =0;
+    printf("\n Please enter a number what you need from the struct\n");
+    scanf("%d", &get_index);
+
+    get_a_number(&storage1, get_index, &back_index_position );
+
+    for(int m = 0; m <  storage1.counter ; m++)
     {
-        printf("\n %d, %d", storage1.array[k], k);
+        printf("\n %d, %d", storage1.array[m], m);
     }
     printf("\n\nstorage1.counter %d\n\n", storage1.counter);
+    printf("\n get index return value %d", back_index_position);
+
+
 
 
 
@@ -55,32 +85,29 @@ int main()
     return 0;
 }
 
-void add_last_number( struct storage storage1)
+void add_last_number( storage *storage1, int input_value)
 {
 
 
+    storage1->array[storage1->counter] = input_value;
+    storage1->counter++;
 
-    int input_value = 0;
-
-    printf("\nEnter a new number to the end of the row\n");
-
-
-    scanf("%d", &input_value);
-
-
-    storage1.array[storage1.counter] = input_value;
-    storage1.counter++;
-
-    printf("\n\n counter %d\n\n", storage1.counter);
+    printf("\n\n counter %d\n\n", storage1->counter);
 
 
     printf("\n\n=============\n\n");
 
 
-    for(int j = 0; j <  storage1.counter ; j++)
+    for(int j = 0; j <  storage1->counter ; j++)
     {
-        printf("\n %d, %d", storage1.array[j], j);
+        printf("\n %d, %d", storage1->array[j], j);
     }
 
 }
 
+void get_a_number( storage *storage1, int get_index, int *back_index_position)
+{
+
+    *back_index_position = storage1->array[get_index-1] ;
+
+}
