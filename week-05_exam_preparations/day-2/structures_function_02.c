@@ -13,25 +13,74 @@
  *
  * Test in the main function whether everything works.
  */
-void last_place_adder(*array)
-struct storage
+
+typedef struct storage
 {
     int array[50];
-    int a;
+    int counter;
 };
+
+void add_last_number( struct storage storage1 );
+
 
 int main()
 {
 
+    struct storage storage1;
+
+    storage1.counter = 0;
+    printf("enter how many numbers you want to store in a row:\n");
+    scanf("%d", &storage1.counter);
+
+    for(int i = 0; i <  storage1.counter ; i++)
+    {
+        (storage1.array[i] = i+1);
+        printf("\n %d, %d", storage1.array[i], i);
+    }
+    printf("\n\nstorage1.counter %d\n\n", storage1.counter);
+
+    add_last_number(storage1);
+
+    for(int k = 0; k <  storage1.counter ; k++)
+    {
+        printf("\n %d, %d", storage1.array[k], k);
+    }
+    printf("\n\nstorage1.counter %d\n\n", storage1.counter);
 
 
 
-return 0;
+
+
+
+    return 0;
 }
 
-void last_place_adder(*array){
+void add_last_number( struct storage storage1)
+{
 
-array[50]=
 
+
+    int input_value = 0;
+
+    printf("\nEnter a new number to the end of the row\n");
+
+
+    scanf("%d", &input_value);
+
+
+    storage1.array[storage1.counter] = input_value;
+    storage1.counter++;
+
+    printf("\n\n counter %d\n\n", storage1.counter);
+
+
+    printf("\n\n=============\n\n");
+
+
+    for(int j = 0; j <  storage1.counter ; j++)
+    {
+        printf("\n %d, %d", storage1.array[j], j);
+    }
 
 }
+
