@@ -29,7 +29,7 @@ typedef struct
 
 int average_returner(student_st student_array[], int size);
 void student_print(student_st student_array[], int size);
-
+beststudent(student_st student_array[], int size);
 
 int main()
 {
@@ -48,7 +48,7 @@ int main()
 
     student_print(student_array, size);
 
-
+   printf("\n\n The number of students with 5 grade and good behavior is %d ",(beststudent(student_array, size)));
 
     return 0;
 }
@@ -75,4 +75,18 @@ void student_print(student_st student_array[], int size)
             printf("\n %s, you are fuckin amazing, please behave good \n", student_array[j].name );
         }
     }
+}
+
+int beststudent(student_st student_array[], int size)
+{
+    int counter =0;
+    int j = 0;
+        for(j=0; j<= size; j++){
+        if(student_array[j].grade >= 5 && student_array[j].behavior==0)
+                            {
+                                counter++;
+            printf("\n %s, you are fuckin amazing, please behave good \n", student_array[j].name );
+        }
+    }
+return counter;
 }
