@@ -42,14 +42,15 @@ int main()
     int size = sizeof (student_array)/sizeof (student_array[0]);
 
     printf("array size %d", size);
-    average_returner(student_st student_array[].grade, size);
+    average_returner(student_array, size);
 
-
+    printf("\n\n The average of grades is %d", (average_returner(student_array, size)) ) ;
 
     return 0;
 }
 int average_returner(student_st student_array[], int size)
 {
+
     int sum_notes = 0;
     int i = 0;
     for( i=0; i<=size; i++)
@@ -58,5 +59,6 @@ int average_returner(student_st student_array[], int size)
 
     }
 
+ return (sum_notes/size);
 
 }
