@@ -10,3 +10,31 @@
 //write a function that counts good behaviors, if they have 5 grades:
 //return with the count of students
 
+#include <stdio.h>
+#include <stdlib.h>
+
+struct student{
+char name[20];
+int grade;
+enum behavior { good_behavior, bad_behavior};;
+};
+
+int main(){
+
+struct student Joe;
+struct student Jane;
+struct student Kevin;
+struct student Kate;
+
+joe.name = "Joe";
+joe.grade = 5;
+joe.behavior = 1;
+
+
+jane.name = "Jane";
+jane.grade = 4;
+jane.behavior = 2;
+
+
+return 0;
+}
