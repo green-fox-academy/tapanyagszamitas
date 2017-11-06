@@ -42,6 +42,9 @@ int main()
 
     s = sizeof(array_of_five)/sizeof(array_of_five[0]);
     s2 = sizeof(array_of_five)/sizeof(array_of_five[0]);
+
+    printf("\n\n+++ %d ++++", s);
+
     int i = 0;
     int j = 0;
     for (i = 0, j = s2; i< s/2 && j > s2/2; i++, j--)
