@@ -13,28 +13,50 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct student{
-char name[20];
-int grade;
-enum behavior { good_behavior, bad_behavior};;
-};
-
-int main(){
-
-struct student Joe;
-struct student Jane;
-struct student Kevin;
-struct student Kate;
-
-joe.name = "Joe";
-joe.grade = 5;
-joe.behavior = 1;
+typedef enum behavior
+{
+    good_behavior,
+    bad_behavior
+} behavior_st;
 
 
-jane.name = "Jane";
-jane.grade = 4;
-jane.behavior = 2;
+typedef struct
+{
+    char name[20];
+    int grade;
+    behavior_st behavior;
+} student_st;
+
+int average_returner(student_st student_array[], int size);
+
+int main()
+{
+
+    student_st student_petra = {"Petra", 5, good_behavior};
+    student_st student_panna = {"Panna", 4, bad_behavior};
+    student_st student_patrik = {"Patrik", 2, bad_behavior};
+    student_st student_paul = {"Paul", 5, bad_behavior};
+    student_st student_peter = {"Peter", 1, good_behavior};
+
+    student_st student_array[]= { student_petra,student_panna, student_patrik, student_paul, student_peter};
+    int size = sizeof (student_array)/sizeof (student_array[0]);
+
+    printf("array size %d", size);
+    average_returner(student_st student_array[].grade, size);
 
 
-return 0;
+
+    return 0;
+}
+int average_returner(student_st student_array[], int size)
+{
+    int sum_notes = 0;
+    int i = 0;
+    for( i=0; i<=size; i++)
+    {
+        sum_notes = student_array[i].grade  + sum_notes;
+
+    }
+
+
 }
