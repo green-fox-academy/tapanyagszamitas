@@ -28,6 +28,8 @@ typedef struct
 } student_st;
 
 int average_returner(student_st student_array[], int size);
+void student_print(student_st student_array[], int size);
+
 
 int main()
 {
@@ -38,13 +40,15 @@ int main()
     student_st student_paul = {"Paul", 5, bad_behavior};
     student_st student_peter = {"Peter", 1, good_behavior};
 
-    student_st student_array[]= { student_petra,student_panna, student_patrik, student_paul, student_peter};
+    student_st student_array[]= { student_petra, student_panna, student_patrik, student_paul, student_peter};
     int size = sizeof (student_array)/sizeof (student_array[0]);
 
-    printf("array size %d", size);
-    average_returner(student_array, size);
 
     printf("\n\n The average of grades is %d", (average_returner(student_array, size)) ) ;
+
+    student_print(student_array, size);
+
+
 
     return 0;
 }
@@ -56,9 +60,19 @@ int average_returner(student_st student_array[], int size)
     for( i=0; i<=size; i++)
     {
         sum_notes = student_array[i].grade  + sum_notes;
-
     }
+    return (sum_notes/size);
+}
 
- return (sum_notes/size);
+void student_print(student_st student_array[], int size)
+{
 
+    int j = 0;
+
+    for(j=0; j<= size; j++){
+        if(student_array[j].grade >= 3 && student_array[j].behavior==1)
+                            {
+            printf("\n %s, you are fuckin amazing, please behave good \n", student_array[j].name );
+        }
+    }
 }
