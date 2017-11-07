@@ -92,7 +92,7 @@ int main()
         }*/
     changing_number(&storage1, &return_value_after_change, change_pos, change_number);
 
-printf("return value %d", return_value_after_change);
+    printf("return value %d", return_value_after_change);
 
     return 0;
 }
