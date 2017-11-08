@@ -17,13 +17,9 @@ void arr_reverse(char *array, int s);
 int main()
 {
     char array[10]= "Green Fox";
-
     printf("original state :\n %s \n\n", array);
-
     int s =sizeof(array)/sizeof(array[0]);
-
     arr_reverse(array, s);
-
     printf("\n\nreversed state");
     for(int k=0; k<=10; k++){
         ( printf("%c", array[k]));
