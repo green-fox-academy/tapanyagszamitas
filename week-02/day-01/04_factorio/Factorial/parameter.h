@@ -1,1 +1,0 @@
-#define PARAMETER 10
