@@ -61,7 +61,8 @@ int main()
     printf("\n\n The oldest alive plumber master is %d years old", 2017-get_oldest_alive(plumber_masters));
 
 
- //   printf("\n\n The number of the qalificated plumber masters (have at last BsC in plumber science) is %d", qualification_counter(person_t plumber_masters, len, qualification_e quali));
+
+    printf("\n\n The number of the qalificated plumber masters (have at last BsC in plumber science) is %d", qualification_counter(plumber_masters, 4, qualification_e quali));
 
     return 0;
 }
