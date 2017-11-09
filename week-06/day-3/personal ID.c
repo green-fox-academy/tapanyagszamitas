@@ -26,22 +26,25 @@
  * You don't need to implement a function, which initializes the persons, just do it manually from main(). E.g. initialize your persons in main() with 4 elements in order to be able to test your 2 implemented functions if it works correctly.
  */
 
+typedef enum
+{
+    elementary_school,
+    high_school,
+    bsc_degree,
+    master_degree,
+    phd
+} qualification_e;
+
 typedef struct person
 {
     char name[256];
     int year_of_birth;
-    enum qualification
-    {
-        elementary_school,
-        high_school,
-        bsc_degree,
-        master_degree,
-        phd
-    } alias_q;
-} alias_pers;
+    qualification_e quali;
 
-int get_oldest_alive(alias_pers plumber_masters[], int oldest);
-int qualification_counter(alias_pers plumber_masters[]);
+} person_t;
+
+int get_oldest_alive(person_t plumber_masters[], int oldest);
+int qualification_counter(person_t plumber_masters[], int len, qualification_e qual);
 
 
 int main()
@@ -57,12 +60,13 @@ int main()
 
     printf("\n\n The oldest alive plumber master is %d years old", 2017-get_oldest_alive(plumber_masters, oldest));
 
-    printf("\n\n The number of the qalificated plumber masters (have at last BsC in plumber science) is %d", qualification_counter(plumber_masters));
+
+    printf("\n\n The number of the qalificated plumber masters (have at last BsC in plumber science) is %d", (qualification_counter(person_t plumber_masters, len, qualification_e qual)));
 
     return 0;
 }
 
-int get_oldest_alive(alias_pers plumber_masters[], int oldest)
+int get_oldest_alive(person_t plumber_masters[], int oldest)
 {
     for(int i=0; i<= 3; i++)
     {
@@ -76,13 +80,13 @@ int get_oldest_alive(alias_pers plumber_masters[], int oldest)
     return oldest;
 }
 
-int qualification_counter( struct person plumber_masters[])
+int qualification_counter(person_t plumber_masters[], int len, qualification_e qual)
 {
 
-    int counter=0;
+    int counter = 0;
 
-    for(int i=0; i<= 3; i++){
-        if(plumber_masters[i].alias_q > 2){
+    for(int i=0; i <= len; i++){
+        if(plumber_masters[i].quali == qual){
             counter ++;
         }
     }
