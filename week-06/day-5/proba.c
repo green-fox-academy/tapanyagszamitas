@@ -22,15 +22,9 @@ it should return the number of a given orientation (passed as a parameter)*/
 
 #include <stdio.h>
 
+typedef enum directions{NORTH, SOUTH, EAST, WEST} orientation_t;
 
-typedef enum {NORTH,
-              SOUTH,
-              EAST,
-              WEST
-             } orientation_t;
-
-typedef struct
-{
+typedef struct {
     char name[30];
     int chair_nr;
     float lightness;
@@ -38,10 +32,10 @@ typedef struct
 } classroom_t;
 
 float get_avarage_lightness(classroom_t classroom_array[], int size);
+int orientation_count(classroom_t classroom_array[], int size, orientation_t call_direction);
 
 int main()
 {
-
     classroom_t first_a_class = {"First A", 31, 2.2, NORTH};
     classroom_t first_b_class = {"First B", 28, 9.2, SOUTH};
     classroom_t first_c_class = {"First C", 17, 3.2, EAST};
@@ -49,28 +43,38 @@ int main()
     classroom_t second_b_class = {"First B", 42, 2.2, NORTH};
     classroom_t second_c_class = {"First C", 27, 4.2, WEST};
 
-
-    classroom_t classroom_array[]= {first_a_class, first_b_class, first_c_class, second_a_class, second_b_class, second_c_class};
+    classroom_t classroom_array[] = {first_a_class, first_b_class, first_c_class, second_a_class, second_b_class, second_c_class};
     int size = sizeof(classroom_array) / sizeof(classroom_array[0]);
 
+    printf("\n\n Average darkness is %.2f", get_avarage_lightness(classroom_array, size));
 
-    printf("\n\n Average darkness is %.2f", get_avarage_lightness(classroom_array,size));
+    orientation_t call_direction = NORTH; // NORTH = 0, SOUTH = 1 , EAST = 2, WEST = 3
+
+    printf("\n\n The number of orientations is %d\n\n", orientation_count(classroom_array, size, call_direction));
 
     return 0;
 }
 
 float get_avarage_lightness(classroom_t classroom_array[], int size)
 {
-
     float sum =0;
 
     for(int i=0; i<=size; i++)
     {
         sum = classroom_array[i].lightness + sum;
     }
-    printf("******** sum = %f", sum);
-
     return (sum/size);
 }
 
+int orientation_count(classroom_t classroom_array[], int size, orientation_t call_direction){
 
+int ori_counter = 0;
+
+for(int i=0; i<=size-1; i++)
+    {
+        if(classroom_array[i].oreintation == call_direction){
+            ori_counter++;
+        }
+    }
+return ori_counter;
+}
