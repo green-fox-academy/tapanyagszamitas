@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <iomanip>
 using namespace std;
 
 // An average Green Fox attendee codes 6 hours daily
@@ -19,7 +19,9 @@ int semester_weeks = 17;
 
 cout << "A greenfox attende is taking "<< workhours_a_days * workdays_a_week * semester_weeks << " hours with coding."<< endl;
 
-cout << "Tis is a "<< (52/(workhours_a_days * workdays_a_week))  << " % of a normal working programmer."<< endl;
+float percentige_of_work = (float) (workhours_a_days * workdays_a_week)/52*100;
+
+cout << "Tis is a "<< setprecision(12)<< percentige_of_work  << " % of a normal working programmer."<< endl;
 
 
 
