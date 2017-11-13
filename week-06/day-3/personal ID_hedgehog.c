@@ -44,7 +44,7 @@ typedef struct person
 } person_t;
 
 int get_oldest_alive(person_t plumber_masters[]);
-int qualification_counter(person_t plumber_masters[], int len, qualification_e quali);
+int qualification_counter(person_t, int len);
 
 
 int main()
@@ -62,7 +62,7 @@ int main()
 
 
 
-    printf("\n\n The number of the qalificated plumber masters (have at last BsC in plumber science) is %d", qualification_counter(plumber_masters, 4, qualification_e quali));
+    printf("\n\n The number of the qalificated plumber masters (have at last BsC in plumber science) is %d", qualification_counter(person_t, 4));
 
     return 0;
 }
@@ -81,7 +81,7 @@ int get_oldest_alive(person_t plumber_masters[])
     return oldest;
 }
 
-int qualification_counter(person_t plumber_masters[], int len, qualification_e quali)
+int qualification_counter(person_t, int len)
 {
 
     int counter = 0;
