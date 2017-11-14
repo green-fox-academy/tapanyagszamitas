@@ -18,13 +18,17 @@ class Student {
     void print_data(){
     cout << name <<" "<< age << endl;
     }
+    void greet(){
+    cout << "Hello my name is " << name << endl;
+
+    }
 };
 
 int main() {
-  // Create a new instace of the Student class and set it's name to "John" and
-  // it's age to 21
+   // Create a method on the Student class called "greet" that returns a string
+  // like: "Hello my name is: <student name>"
 Student sa("John", 21);
  sa.print_data();
-
+sa.greet();
   return 0;
 }
