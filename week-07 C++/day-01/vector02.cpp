@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <random>
 
 using namespace std;
 
@@ -9,6 +10,10 @@ using namespace std;
 int main() {
 
 vector <int> int_vector;
+
+srand(time(NULL));
+
+int randNum = rand()%(10- 0 + 1) + 0;
 
 for(int i = 0; i < 10; i++){
     int_vector.push_back(random int);
