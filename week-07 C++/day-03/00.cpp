@@ -19,20 +19,18 @@ public :
     }
 };
 
-
 class Superhuman: public Human
 {
+public:
     void travelling()
     {
         cout << "Flying, teleporting" << endl;
     }
-
-
 };
 
 class Aquahuman: public Human
 {
-
+public:
     void travelling()
     {
         cout << "Swimming, diving, riding with dolphins" << endl;
@@ -41,16 +39,16 @@ class Aquahuman: public Human
 
 
 
-
 int main()
 {
-    Superhuman s;
-    Aquahuman a;
-    Human *human1 = &s;
-    Human *human2 = &a;
+    Human h;
+    h.travelling();
 
-    human1-> travelling();
-    human2-> travelling();
+    Superhuman s;
+    s.travelling();
+
+    Aquahuman a;
+    a.travelling();
 
     return 0;
 }
