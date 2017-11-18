@@ -9,7 +9,6 @@ using namespace std;
 // which calculates the area of the shape and stores it inside
 // the class (so it is a private method)
 
-
 class shape
 {
 private:
@@ -17,6 +16,7 @@ private:
     {
         cout << "Calculatng a shapes area " << endl;
     }
+
 };
 
 class circle : public shape
@@ -29,6 +29,10 @@ public:
         area = r *r *3.14;
         cout << "area of a circle with "<<r<<" unit radius is " << area << " square unit"<< endl;
     }
+
+    ~circle(){
+ cout << "Thank you for using our calculator" << endl;
+}
 
 };
 
@@ -57,10 +61,6 @@ public:
         cout << "the area of the triangle is " << area << " square unit" <<endl;
     }
 };
-
-
-
-
 
 int main()
 {
