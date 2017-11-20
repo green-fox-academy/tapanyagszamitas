@@ -1,0 +1,4 @@
+No.  | Done? | Priority | Task name |
+1	no	0	 kutya	
+2	no	0	 macska	
+3	no	0	 eger	
