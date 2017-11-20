@@ -4,6 +4,12 @@
 #include <windows.h>
 #include <stdexcept>
 
+
+// Write a try - catch block.
+// Throws a bulit-in exception in the try block
+// Catch it in the catch block and write it out.
+// Don't forget includes
+
 using namespace std;
 
 int main () {
