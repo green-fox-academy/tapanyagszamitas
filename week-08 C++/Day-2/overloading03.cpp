@@ -17,7 +17,28 @@ using namespace std;
 // What did You learn from this exercise?
 // Write it down in a comment into Your file!
 
+float multi(float a, float b){
+
+float c = a + b;
+
+return c;
+}
+
+
+/*
+int multi(int a, int b){
+
+int c = a + b;
+
+return c;
+}
+*/
+
+
 int main() {
+
+cout << multi(6, 5) << endl;
+
 
 
 	return 0;
