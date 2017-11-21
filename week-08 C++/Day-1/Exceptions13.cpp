@@ -16,9 +16,18 @@ int a = 0;
 cout << "Please enter the value of an integer (a)"<< endl;
 cout << "You have 15 seconds to do"<< endl;
 
+    time_t start_time = time(0);
+
 cin >> a;
 
 cout<< "Your choice is " << a << endl;
 
+ time_t finish_time = time(0);
+
+    if (finish_time - start_time > 5) {
+ cout << "You are out of time of time.\n";
+    }
+
+return 0;
 
 }
