@@ -1,13 +1,23 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
-enum UserRole { CUSTOMER, ADMIN };
+enum UserRole {CUSTOMER, ADMIN };
 
 class User
 {
 public:
-    User(string name, string pin, UserRole role, int balance);
+    User(string name, int pin, UserRole role, int balance)
+    {
+
+        this -> name = name;
+        this -> pin = pin;
+        this -> role = role;
+        this -> balance = balance;
+    };
+
     string getName();
     bool checkPin(string pinFromUserInput);
 
@@ -23,15 +33,22 @@ private:
 class ATM
 {
 public:
-    ATM(); //Admin", "1234", ADMIN, 100
-    void addUser(User* user);
- //   User* whoIsTheReachest();
+    ATM(int atm_balance)
+    {
+        this -> atm_balance = atm_balance;
+    };
 
-   // User* loginUser(String username, password);
-    void withdraw(int amount, string username);
+    void addUser(User* user)
+    {
+        users.push_back(*(user));
+    };
+//   User* whoIsTheReachest();
+
+    // User* loginUser(String username, password);
+    void withdraw(int amount, string name);
 private:
-    int balance;
-//    vector <User> users;
+    int atm_balance;
+    vector <User> users;
 };
 
 void User::menu(string name, int pin)
@@ -57,11 +74,12 @@ void User::menu(string name, int pin)
 
     cin >> ask_for_pin;
 
-    if(ask_for_name == name) {
-       if(ask_for_pin == pin)
+    if(ask_for_name == name)
     {
-        cout << "welcome in the system user menu!";
-    }
+        if(ask_for_pin == pin)
+        {
+            cout << "welcome in the system user menu!";
+        }
     }
     else
     {
@@ -72,13 +90,16 @@ int main()
 {
 
 
-    ATM atm();
+    ATM atm(10000);
 
-    atm.addUser(new User("Admin", "1234", ADMIN, 100));
-    atm.addUser(new User("Josef", "1234", CUSTOMER, 200));
-    atm.addUser(new User("Bela", "1234", CUSTOMER, 300));
-    atm.addUser(new User("Ferenc", "1234", CUSTOMER, 400));
-    atm.addUser(new User("Maria", "1234", CUSTOMER, 500));
+    atm.addUser(new User("Admin", 1234, ADMIN, 100));
+    atm.addUser(new User("Josef", 1234, CUSTOMER, 200));
+    atm.addUser(new User("Bela", 1234, CUSTOMER, 300));
+    atm.addUser(new User("Ferenc", 1234, CUSTOMER, 400));
+    atm.addUser(new User("Maria", 1234, CUSTOMER, 500));
+
+    menu(name, pin);
+
 
     while(true)
     {
@@ -87,19 +108,19 @@ int main()
         // username
         // pin
 
-   /*    User* user = atm.loginUser(name, pin);
-        if (user == NULL){
-            cout << "Hibas pin";
-        }
-        else
-        {
-            atm.withdraw(1231);
-        }
-        // parancs végrehajtás
+        /*    User* user = atm.loginUser(name, pin);
+             if (user == NULL){
+                 cout << "Hibas pin";
+             }
+             else
+             {
+                 atm.withdraw(1231);
+             }
+             // parancs végrehajtás
+         }
+
+        */
+
+        return 0;
     }
-
-*/
-
-    return 0;
-}
 }
