@@ -2,23 +2,47 @@
 
 using namespace std;
 
+enum UserRole { CUSTOMER, ADMIN };
+
+class User
+{
+public:
+    User(string name, string pin, UserRole role, int balance);
+    string getName();
+    bool checkPin(string pinFromUserInput);
+
+    void menu(string name, int pin);
+
+private:
+    string name;
+    string pin;
+    UserRole role;
+    int balance;
+};
+
 class ATM
 {
-private:
-    string id;
-    int pin_code;
-    float money;
-
 public:
-    ATM(int pin_code, float money, string id)
-    {
-        this->id = id;
-        this->pin_code = pin_code;
-        this->money = money;
+    ATM(); //Admin", "1234", ADMIN, 100
+    void addUser(User* user);
+ //   User* whoIsTheReachest();
 
+   // User* loginUser(String username, password);
+    void withdraw(int amount, string username);
+private:
+    int balance;
+//    vector <User> users;
+};
+
+void User::menu(string name, int pin)
+{
+
+    this->name = name;
+    this->pin = pin;
+    this->balance = balance;
 
     int ask_for_pin = 0;
-    string ask_for_id;
+    string ask_for_name;
     cout <<
          "______________________________ \n"
          "|Welcome to the boring ATM!   |\n"
@@ -27,57 +51,55 @@ public:
          "|_____________________________|\n"
          "|Please input your ID !\n";
 
-    cin >> ask_for_id;
+    cin >> ask_for_name;
 
     cout << "Please input your pin code!" << endl;
 
     cin >> ask_for_pin;
 
-    if(ask_for_id == id && ask_for_pin == pin_code)
+    if(ask_for_name == name) {
+       if(ask_for_pin == pin)
     {
         cout << "welcome in the system user menu!";
+    }
     }
     else
     {
         cout << "police will arrest you for hacking ATM";
     }
-
-  }
-
-    void print_data()
-    {
-        cout << "\t My pin is " << pin_code << " my id is "<< id << " and I have " << money << " forints" << endl;
-    }
-    void set_money(int pin_code, float money, string id)
-    {
-        if (this->pin_code == pin_code)
-        {
-            this->money = money;
-        }
-        else
-        {
-            cout << "nice try hacker!" << endl;
-        }
-    }
-
-};
-
+}
 int main()
 {
 
 
-    ATM at(1234, 33.33, "name"); //pin, account balance, id
+    ATM atm();
 
-    //at.print_data();
+    atm.addUser(new User("Admin", "1234", ADMIN, 100));
+    atm.addUser(new User("Josef", "1234", CUSTOMER, 200));
+    atm.addUser(new User("Bela", "1234", CUSTOMER, 300));
+    atm.addUser(new User("Ferenc", "1234", CUSTOMER, 400));
+    atm.addUser(new User("Maria", "1234", CUSTOMER, 500));
 
-    // at.set_money(134, 1200, name2);
+    while(true)
+    {
+        // parancs bekérés
+        // login
+        // username
+        // pin
 
-    at.print_data();
+   /*    User* user = atm.loginUser(name, pin);
+        if (user == NULL){
+            cout << "Hibas pin";
+        }
+        else
+        {
+            atm.withdraw(1231);
+        }
+        // parancs végrehajtás
+    }
 
-
-
-
-
+*/
 
     return 0;
+}
 }
