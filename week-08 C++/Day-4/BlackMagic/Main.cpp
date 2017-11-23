@@ -35,18 +35,18 @@ void print_menu()
 {
     cout <<
 
-         "|=====================================|\n"
-         "|   Temperature Logger Application    |\n"
-         "|=====================================|\n"
-         "|   Commands:                         |\n"
-         "|                                     |\n"
-         "|h        Show command list           |\n"
-         "|o        Open port                   |\n"
-         "|s        Start logging / Stop logging|\n"
-         "|c        Close port                  |\n"
-         "|l        List after error handling   |\n"
-         "|e        Exit from the program       |\n"
-         "|=====================================|\n"
+         "    |=====================================|\n"
+         "    |   Temperature Logger Application    |\n"
+         "    |=====================================|\n"
+         "    |   Commands:                         |\n"
+         "    |                                     |\n"
+         "    |h        Show command list           |\n"
+         "    |o        Open port                   |\n"
+         "    |s        Start logging / Stop logging|\n"
+         "    |c        Close port                  |\n"
+         "    |l        List after error handling   |\n"
+         "    |e        Exit from the program       |\n"
+         "    |=====================================|\n"
          "\n";
 }
 
