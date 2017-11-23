@@ -8,9 +8,9 @@
 
 using namespace std;
 
+typedef enum{PRINT_MENU, OPEN_PORT, START_STOP_LOG, CLOSE_PORT, LISTS_EROR, EXIT}e_commands;
+
 void print_menu(){
-
-
 cout <<
 
 "|=====================================|\n"
@@ -24,7 +24,8 @@ cout <<
 "|c        Close port                  |\n"
 "|l        List after error handling   |\n"
 "|e        Exit from the program       |\n"
-"|=====================================|\n";
+"|=====================================|\n"
+"\n";
 }
 
 
@@ -32,7 +33,7 @@ int main()
 {
 
  print_menu();
-/*
+
     vector<string> ports = SerialPortWrapper::listAvailablePorts();
     cout << "Number of found serial ports: " << ports.size() << endl;
     for (unsigned int i = 0; i < ports.size(); i++) {
@@ -50,6 +51,7 @@ int main()
         cout << line << endl;
         }
         }
-        serial->closePort();*/
+        serial->closePort();
+
     return 0;
 }
