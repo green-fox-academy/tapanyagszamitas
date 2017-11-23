@@ -11,21 +11,24 @@ class User
 public:
     User(string name, int pin, UserRole role, int balance)
     {
-
         this -> name = name;
         this -> pin = pin;
         this -> role = role;
         this -> balance = balance;
     };
 
-    string getName();
+    string getName(){
+    return name;
+    }
+
+
     bool checkPin(string pinFromUserInput);
 
-    void menu(string name, int pin);
+    void print_menu(string name, int pin);
 
 private:
     string name;
-    string pin;
+    int pin;
     UserRole role;
     int balance;
 };
@@ -46,17 +49,17 @@ public:
 
     // User* loginUser(String username, password);
     void withdraw(int amount, string name);
-private:
+
     int atm_balance;
     vector <User> users;
+    private:
 };
 
-void User::menu(string name, int pin)
+void User::print_menu(string name, int pin)
 {
 
     this->name = name;
     this->pin = pin;
-    this->balance = balance;
 
     int ask_for_pin = 0;
     string ask_for_name;
@@ -67,6 +70,7 @@ void User::menu(string name, int pin)
          "|place for your virtual money!|\n"
          "|_____________________________|\n"
          "|Please input your ID !\n";
+
 
     cin >> ask_for_name;
 
@@ -86,6 +90,8 @@ void User::menu(string name, int pin)
         cout << "police will arrest you for hacking ATM";
     }
 }
+
+
 int main()
 {
 
@@ -98,10 +104,16 @@ int main()
     atm.addUser(new User("Ferenc", 1234, CUSTOMER, 400));
     atm.addUser(new User("Maria", 1234, CUSTOMER, 500));
 
-    menu(name, pin);
 
 
-    while(true)
+User u("Valaki", 4321,CUSTOMER, 200);
+
+
+atm.addUser(&u);
+cout << atm.users.at(5).getName() << endl;
+u.print_menu("Valaki", 4321);
+
+    //while(true)
     {
         // parancs bekérés
         // login
