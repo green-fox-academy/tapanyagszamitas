@@ -1,9 +1,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
+#include <iomanip>
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+
 
 #include "SerialPortWrapper.h"
 
@@ -35,18 +38,26 @@ void print_menu()
 {
     cout <<
 
-         "    |=====================================|\n"
-         "    |   Temperature Logger Application    |\n"
-         "    |=====================================|\n"
-         "    |   Commands:                         |\n"
-         "    |                                     |\n"
-         "    |h        Show command list           |\n"
-         "    |o        Open port                   |\n"
-         "    |s        Start logging / Stop logging|\n"
-         "    |c        Close port                  |\n"
-         "    |l        List after error handling   |\n"
-         "    |e        Exit from the program       |\n"
-         "    |=====================================|\n"
+         "    |=====================================================|\n"
+         "    |     ==== Temperature Logger Application ====        |\n"
+         "    |=====================================================|\n"
+         "    |   Commands:                                         |\n"
+         "    |                                                     |\n"
+         "    |h        Show command list                           |\n"
+         "    |o        Open port                                   |\n"
+         "    |s        Start logging / Stop logging                |\n"
+         "    |c        Close port                                  |\n"
+         "    |l        List after error handling                   |\n"
+         "    |f        Store datas in a file                       |\n"
+         "    |r        Read datas from a file                      |\n"
+         "    |a        Avarage temperature handling by days        |\n"
+         "    |max      Maximum temperature handling by days        |\n"
+         "    |min      Minimum temperature handling by days        |\n"
+         "    |at       Avarage temperature handling by temperatures|\n"
+         "    |maxt     Maximum temperature handling by temperatures|\n"
+         "    |mint     Minimum temperature handling by temperatures|\n"
+         "    |e        Exit from the program                       |\n"
+         "    |=====================================================|\n"
          "\n";
 }
 
@@ -154,7 +165,7 @@ void run(vector<string> command_vector)
 {
     bool keep_running = true;
     bool is_port_opened = false;
-    SerialPortWrapper *serial = new SerialPortWrapper("COM15", 115200);
+    SerialPortWrapper *serial = new SerialPortWrapper("COM16", 115200);
     vector<string> log_vector;
 
     while (keep_running)
