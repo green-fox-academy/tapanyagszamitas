@@ -16,7 +16,7 @@ int main()
 
     // connection
 
-        SerialPortWrapper *serial = new SerialPortWrapper("COM6", 115200);
+        SerialPortWrapper *serial = new SerialPortWrapper("COM16", 115200);
         serial->openPort();
         string line;
         while(1){

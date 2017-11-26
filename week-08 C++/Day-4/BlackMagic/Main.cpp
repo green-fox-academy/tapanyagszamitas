@@ -129,8 +129,11 @@ void start_stop_loggin(SerialPortWrapper *serial, bool port_open, vector<string>
     for (;;)
     {
         serial->readLineFromPort(&line);
-        if (line.length() > 0)
+        if ((22>line.length()) && (line.length() > 0))
         {
+            for(int i =0; )XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
             cout << line << endl;
             log_vector->push_back(line);
         }
