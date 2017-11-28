@@ -111,9 +111,21 @@ int main(void)
 		  }
 	  BSP_LED_Toggle(LED_GREEN);
 	  HAL_Delay(1000);
+/*
+int i = 1;
+int temp = 0;
+for (i = 1; i<10; i++){
+	BSP_LED_On(LED_GREEN);
+	temp = i * 100;
+	  HAL_Delay(temp);
+		BSP_LED_Off(LED_GREEN);
+		HAL_Delay(500);
+		temp = 0;
+}
+*/
 
 
-  }
+}
 }
 
 /**
