@@ -143,6 +143,10 @@ int main(void) {
 	int sum = 0;
 	int i = 0;
 
+
+	while(1){
+
+
 	GPIO_PinState previousState = GPIO_PIN_RESET;
 	//int buttonPressed = 0;
 	//int buttonReleased = 0;
