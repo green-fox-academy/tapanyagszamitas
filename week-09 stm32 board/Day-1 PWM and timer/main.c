@@ -60,7 +60,6 @@ volatile int repetition = 5;
 
 /* Private function prototypes -----------------------------------------------*/
 
-
 #ifdef __GNUC__
 /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
  set to 'Yes') calls __io_putchar() */
@@ -104,7 +103,8 @@ int main(void) {
 	/* Configure the System clock to have a frequency of 216 MHz */
 	SystemClock_Config();
 
-	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE()
+	;
 
 	PWMPinConfig.Alternate = GPIO_AF1_TIM2;
 	PWMPinConfig.Mode = GPIO_MODE_AF_PP;
@@ -117,12 +117,13 @@ int main(void) {
 	/*
 	 * Configure timer
 	 */
-	__HAL_RCC_TIM2_CLK_ENABLE();
+	__HAL_RCC_TIM2_CLK_ENABLE()
+	;
 
 	Timer2Handle.Instance = TIM2;
 	Timer2Handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-	Timer2Handle.Init.Period = 500000;
-	Timer2Handle.Init.Prescaler = 1000;
+	Timer2Handle.Init.Period = 5000;
+	Timer2Handle.Init.Prescaler = 0;
 	Timer2Handle.Init.CounterMode = TIM_COUNTERMODE_UP;
 	HAL_TIM_Base_Init(&Timer2Handle);
 	HAL_TIM_Base_Start_IT(&Timer2Handle);
@@ -130,7 +131,7 @@ int main(void) {
 	HAL_TIM_PWM_Init(&Timer2Handle);
 
 	Timer2OCConfig.OCMode = TIM_OCMODE_PWM1;
-	Timer2OCConfig.Pulse = 100;
+	Timer2OCConfig.Pulse = 823;
 	HAL_TIM_PWM_ConfigChannel(&Timer2Handle, &Timer2OCConfig, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start_IT(&Timer2Handle, TIM_CHANNEL_1);
 
@@ -153,14 +154,8 @@ int main(void) {
 	printf("**********in STATIC practise day **********\r\n\n");
 
 	int dirUp = 1;
-	int counter = 0;
 	while (1) {
-
-
-
-
-
-		if (TIM2->CCR1 == 1000) {
+		if (TIM2->CCR1 == 5000) {
 			dirUp = 0;
 		}
 		if (TIM2->CCR1 == 100) {
@@ -168,8 +163,6 @@ int main(void) {
 		}
 		TIM2->CCR1 = dirUp ? (TIM2->CCR1 + 1) : (TIM2->CCR1 - 1);
 		HAL_Delay(1);
-
-
 	}
 }
 
@@ -178,13 +171,13 @@ void TIM2_IRQHandler() {
 }
 
 /*void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim) {
-	repetition--;
-	if (repetition == 0) {
-		HAL_TIM_PWM_Stop_IT(&Timer2Handle, TIM_CHANNEL_1);
-	}
-	printf("PWM pulse finished\r\n");
-}
-*/
+ repetition--;
+ if (repetition == 0) {
+ HAL_TIM_PWM_Stop_IT(&Timer2Handle, TIM_CHANNEL_1);
+ }
+ printf("PWM pulse finished\r\n");
+ }
+ */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	printf("Callback called!\r\n");
 }
