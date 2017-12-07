@@ -54,12 +54,15 @@
 UART_HandleTypeDef uart_handle;
 TIM_HandleTypeDef Timer2Handle;
 TIM_OC_InitTypeDef Timer2OCConfig;
+
+
 GPIO_InitTypeDef PWMPinConfig;
+GPIO_InitTypeDef buttonUP;
+GPIO_InitTypeDef buttonDOWN;
 
 volatile int repetition = 5;
 
 /* Private function prototypes -----------------------------------------------*/
-
 
 #ifdef __GNUC__
 /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
@@ -117,35 +120,57 @@ int main(void) {
 	/*
 	 * Configure timer
 	 */
+	__HAL_RCC_TIM2_CLK_ENABLE()
+	;
 	__HAL_RCC_TIM2_CLK_ENABLE();
 
-	Timer2Handle.Instance = TIM2;
-	Timer2Handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-	Timer2Handle.Init.Period = 500000;
-	Timer2Handle.Init.Prescaler = 1000;
-	Timer2Handle.Init.CounterMode = TIM_COUNTERMODE_UP;
-	HAL_TIM_Base_Init(&Timer2Handle);
-	HAL_TIM_Base_Start_IT(&Timer2Handle);
+		Timer2Handle.Instance = TIM2;
+		Timer2Handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+		Timer2Handle.Init.Period = 1646;
+		Timer2Handle.Init.Prescaler = 0xFFF;
+		Timer2Handle.Init.CounterMode = TIM_COUNTERMODE_UP;
+		HAL_TIM_Base_Init(&Timer2Handle);
+		HAL_TIM_Base_Start_IT(&Timer2Handle);
 
-	HAL_TIM_PWM_Init(&Timer2Handle);
+		HAL_TIM_PWM_Init(&Timer2Handle);
 
-	Timer2OCConfig.OCMode = TIM_OCMODE_PWM1;
-	Timer2OCConfig.Pulse = 100;
-	HAL_TIM_PWM_ConfigChannel(&Timer2Handle, &Timer2OCConfig, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start_IT(&Timer2Handle, TIM_CHANNEL_1);
+		Timer2OCConfig.OCMode = TIM_OCMODE_PWM1;
+		Timer2OCConfig.Pulse = 823;
+		HAL_TIM_PWM_ConfigChannel(&Timer2Handle, &Timer2OCConfig, TIM_CHANNEL_1);
+		HAL_TIM_PWM_Start(&Timer2Handle, TIM_CHANNEL_1);
 
-	HAL_NVIC_SetPriority(TIM2_IRQn, 0x0f, 0x00);
-	HAL_NVIC_EnableIRQ(TIM2_IRQn);
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+//	HAL_NVIC_SetPriority(TIM2_IRQn, 0x0f, 0x00);
+//	HAL_NVIC_EnableIRQ(TIM2_IRQn);
+
+//	BUTTON Initialization
+	__HAL_RCC_GPIOF_CLK_ENABLE();
+
+
+	buttonUP.Pin = GPIO_PIN_10;
+	buttonUP.Mode = GPIO_MODE_IT_FALLING;
+	buttonUP.Speed = GPIO_SPEED_HIGH;
+	buttonUP.Pull = GPIO_PULLUP;
+
+	HAL_GPIO_Init(GPIOF, &buttonUP);
+
+
+	buttonDOWN.Pin = GPIO_PIN_9;
+	buttonDOWN.Mode = GPIO_MODE_IT_FALLING;
+	buttonDOWN.Speed = GPIO_SPEED_HIGH;
+	buttonDOWN.Pull = GPIO_PULLUP;
+
+	HAL_GPIO_Init(GPIOF, &buttonDOWN);
+
+	HAL_NVIC_SetPriority(EXTI9_5_IRQn,0x0f, 0x00);
+	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+	HAL_NVIC_SetPriority(EXTI15_10_IRQn,0x0f, 0x00);
+	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
+
+
+
 	/**
 	 * Configure UART
 	 */
@@ -159,49 +184,54 @@ int main(void) {
 	BSP_COM_Init(COM1, &uart_handle);
 
 	printf("\n-----------------WELCOME-----------------\r\n");
-	printf("**********in STATIC practise day **********\r\n\n");
+	printf("**********in STATIC FANATIC LOOP day **********\r\n\n");
 
-	int dirUp = 1;
-	int counter = 0;
 	while (1) {
 
 
 
 
 
-		if (TIM2->CCR1 == 1000) {
-			dirUp = 0;
-		}
-		if (TIM2->CCR1 == 100) {
-			dirUp = 1;
-		}
-
-		if(dirUp)
-			TIM2->CCR1 ++;
-		else
-			TIM2->CCR1 --;
-
-		HAL_Delay(1);
-
-
 	}
+
 }
 
-void TIM2_IRQHandler() {
-	HAL_TIM_IRQHandler(&Timer2Handle);
+
+void EXTI9_5_IRQHandler(){
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_9);
 }
+
+
+void EXTI15_10_IRQHandler(){
+	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+		printf("gomb lenyomva \n");
+
+
+
+
+
+}
+
+
+
 
 /*void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim) {
-	repetition--;
-	if (repetition == 0) {
-		HAL_TIM_PWM_Stop_IT(&Timer2Handle, TIM_CHANNEL_1);
-	}
-	printf("PWM pulse finished\r\n");
-}
-*/
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	printf("Callback called!\r\n");
-}
+ repetition--;
+ if (repetition == 0) {
+ HAL_TIM_PWM_Stop_IT(&Timer2Handle, TIM_CHANNEL_1);
+ }
+ printf("PWM pulse finished\r\n");
+ }
+ */
+
+/*
+ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+ printf("Callback called!\r\n");
+ }
+ */
 
 /**
  * @brief  Retargets the C library printf function to the USART.
