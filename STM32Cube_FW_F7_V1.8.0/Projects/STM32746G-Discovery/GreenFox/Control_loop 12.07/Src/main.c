@@ -206,13 +206,22 @@ void EXTI15_10_IRQHandler(){
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-		printf("gomb lenyomva \n");
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN){
+if(GPIO_PIN == GPIO_PIN_10){
+
+	TIM2->CCR1 -= 50;
+
+	printf("lassito gomb lenyomva \n");
+}
 
 
 
+if(GPIO_PIN == GPIO_PIN_9){
 
+	TIM2->CCR1 += 50;
+	printf("gyorsito gomb lenyomva \n");
 
+}
 }
 
 
