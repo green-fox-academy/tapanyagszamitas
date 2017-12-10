@@ -12,7 +12,7 @@ using namespace std;
 int main() {
 	srand(time(NULL)); // This initializes the random generator.
 	int rnd = 0;
-	for (int i=0; i<20; i++) {
+	for (int i=0; i<5; i++) {
 		rnd = rand() % 5; // generate a random number in the range [0, 4]
 		try {
 			switch (rnd) {

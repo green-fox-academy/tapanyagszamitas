@@ -19,7 +19,7 @@ int main()
 {
     try
     {
-        int a = 5;
+        int a = 95;
         if(a<0)
         {
             throw runtime_error("a is a negative number!");

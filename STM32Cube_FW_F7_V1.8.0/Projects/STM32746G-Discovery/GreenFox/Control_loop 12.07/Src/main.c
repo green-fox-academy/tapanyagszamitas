@@ -55,7 +55,6 @@ UART_HandleTypeDef uart_handle;
 TIM_HandleTypeDef Timer2Handle;
 TIM_OC_InitTypeDef Timer2OCConfig;
 
-
 GPIO_InitTypeDef PWMPinConfig;
 GPIO_InitTypeDef buttonUP;
 GPIO_InitTypeDef buttonDOWN;
@@ -107,7 +106,8 @@ int main(void) {
 	/* Configure the System clock to have a frequency of 216 MHz */
 	SystemClock_Config();
 
-	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE()
+	;
 
 	PWMPinConfig.Alternate = GPIO_AF1_TIM2;
 	PWMPinConfig.Mode = GPIO_MODE_AF_PP;
@@ -120,32 +120,31 @@ int main(void) {
 	/*
 	 * Configure timer
 	 */
+
 	__HAL_RCC_TIM2_CLK_ENABLE()
 	;
-	__HAL_RCC_TIM2_CLK_ENABLE();
 
-		Timer2Handle.Instance = TIM2;
-		Timer2Handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-		Timer2Handle.Init.Period = 1646;
-		Timer2Handle.Init.Prescaler = 0xFFF;
-		Timer2Handle.Init.CounterMode = TIM_COUNTERMODE_UP;
-		HAL_TIM_Base_Init(&Timer2Handle);
-		HAL_TIM_Base_Start_IT(&Timer2Handle);
+	Timer2Handle.Instance = TIM2;
+	Timer2Handle.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+	Timer2Handle.Init.Period = 100;
+	Timer2Handle.Init.Prescaler = 0xFFFF;
+	Timer2Handle.Init.CounterMode = TIM_COUNTERMODE_UP;
+	HAL_TIM_Base_Init(&Timer2Handle);
+	HAL_TIM_Base_Start_IT(&Timer2Handle);
 
-		HAL_TIM_PWM_Init(&Timer2Handle);
+	HAL_TIM_PWM_Init(&Timer2Handle);
 
-		Timer2OCConfig.OCMode = TIM_OCMODE_PWM1;
-		Timer2OCConfig.Pulse = 823;
-		HAL_TIM_PWM_ConfigChannel(&Timer2Handle, &Timer2OCConfig, TIM_CHANNEL_1);
-		HAL_TIM_PWM_Start(&Timer2Handle, TIM_CHANNEL_1);
-
+	Timer2OCConfig.OCMode = TIM_OCMODE_PWM1;
+	Timer2OCConfig.Pulse = 50;
+	HAL_TIM_PWM_ConfigChannel(&Timer2Handle, &Timer2OCConfig, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&Timer2Handle, TIM_CHANNEL_1);
 
 //	HAL_NVIC_SetPriority(TIM2_IRQn, 0x0f, 0x00);
 //	HAL_NVIC_EnableIRQ(TIM2_IRQn);
 
 //	BUTTON Initialization
-	__HAL_RCC_GPIOF_CLK_ENABLE();
-
+	__HAL_RCC_GPIOF_CLK_ENABLE()
+	;
 
 	buttonUP.Pin = GPIO_PIN_10;
 	buttonUP.Mode = GPIO_MODE_IT_FALLING;
@@ -154,7 +153,6 @@ int main(void) {
 
 	HAL_GPIO_Init(GPIOF, &buttonUP);
 
-
 	buttonDOWN.Pin = GPIO_PIN_9;
 	buttonDOWN.Mode = GPIO_MODE_IT_FALLING;
 	buttonDOWN.Speed = GPIO_SPEED_HIGH;
@@ -162,14 +160,11 @@ int main(void) {
 
 	HAL_GPIO_Init(GPIOF, &buttonDOWN);
 
-	HAL_NVIC_SetPriority(EXTI9_5_IRQn,0x0f, 0x00);
+	HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0x0f, 0x00);
 	HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
-	HAL_NVIC_SetPriority(EXTI15_10_IRQn,0x0f, 0x00);
+	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0x0f, 0x00);
 	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
-
-
-
 
 	/**
 	 * Configure UART
@@ -188,44 +183,39 @@ int main(void) {
 
 	while (1) {
 
-
-
-
-
 	}
 
 }
 
-
-void EXTI9_5_IRQHandler(){
+void EXTI9_5_IRQHandler() {
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_9);
 }
 
-
-void EXTI15_10_IRQHandler(){
+void EXTI15_10_IRQHandler() {
 	HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN){
-if(GPIO_PIN == GPIO_PIN_10){
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN) {
+	if (GPIO_PIN == GPIO_PIN_10) {
+		if (TIM2->CCR1 <= 0) {
+			TIM2->CCR1 -= 0;
+		} else {
+			TIM2->CCR1 -= 5;
+		}
+		printf("lassito gomb lenyomva \n");
+		printf("pulse %d %PWM \n", TIM2->CCR1);
+	}
 
-	TIM2->CCR1 -= 50;
-
-	printf("lassito gomb lenyomva \n");
+	if (GPIO_PIN == GPIO_PIN_9) {
+		if (TIM2->CCR1 >= 100) {
+			TIM2->CCR1 += 0;
+		} else {
+			TIM2->CCR1 += 5;
+		}
+		printf("gyorsito gomb lenyomva \n");
+		printf("pulse %d % PWM\n", TIM2->CCR1);
+	}
 }
-
-
-
-if(GPIO_PIN == GPIO_PIN_9){
-
-	TIM2->CCR1 += 50;
-	printf("gyorsito gomb lenyomva \n");
-
-}
-}
-
-
-
 
 /*void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim) {
  repetition--;
