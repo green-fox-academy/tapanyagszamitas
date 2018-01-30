@@ -26,7 +26,7 @@ data_input()
 
         gets(data_input);
 
-        sscanf( data_input, "%s %s %s %s %s", array1, array2, array3, array4, array5,array6, array7);
+        sscanf( data_input, "%s %s %s %s %s", array1, array2, array3, array4, array5, array6, array7);
 
         strcat(array2, array8);
         strcat(array2, array3);

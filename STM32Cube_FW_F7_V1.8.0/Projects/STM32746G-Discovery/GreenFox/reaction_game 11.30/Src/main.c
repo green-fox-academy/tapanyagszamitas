@@ -1,4 +1,4 @@
-/**
+ /**
  ******************************************************************************
  * @file    Templates/Src/main.c
  * @author  MCD Application Team
@@ -142,10 +142,10 @@ int main(void) {
 	int counter = 0;
 	int sum = 0;
 	int i = 0;
-
+/*
 	while (1) {
 
-		/*
+
 		 GPIO_PinState previousState = GPIO_PIN_RESET;
 		 //int buttonPressed = 0;
 		 //int buttonReleased = 0;
@@ -171,23 +171,12 @@ int main(void) {
 
 		while (1) {
 
-			int i = 0;
-
-			for (i = 0; i < 500; i++) {
-				BSP_LED_On(LED_GREEN);
-				HAL_Delay(1);
-				if (BSP_PB_GetState(BUTTON_KEY) == 0)
-					break;
-			}
 
 
-			for (i = 500; i >0; i--) {
-				BSP_LED_Off(LED_GREEN);
-				HAL_Delay(1);
-				if (BSP_PB_GetState(BUTTON_KEY) == 0)
-					break;
-			}
-		}
+
+
+
+
 
 			random = HAL_RNG_GetRandomNumber(&rndCfg) % 10000;
 			HAL_Delay(1000 + random);
@@ -227,7 +216,7 @@ int main(void) {
 			 printf("%i\n", rnd_num % 10 + 1);*/
 
 		}
-	}
+}
 	/**
 	 * @brief  Retargets the C library printf function to the USART.
 	 * @param  None
