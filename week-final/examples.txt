@@ -1,6 +1,7 @@
 Examples:
 
 role in project: programming GUI diagnostic screens, first steering and driving logic for 2nd partner demo.
+Calibrating sensors.
 
 
 
@@ -13,7 +14,7 @@ from line 531, void diagnostic_screen(uint32_t *rgbcolor)
 
 
 control loop:
-https://github.com/greenfox-academy/kryptonite/blob/dev_line_following/serving_car/Src/main.c
+https://github.com/greenfox-academy/kryptonite/commit/d14ce83146ecc313a54e5853b6b4d6a8abbe4fc2#diff-16b8376ccc7d360314d2345d85c98560
 
 parsing: todo app (c)
 
