@@ -25,9 +25,10 @@ data_input()
         char array8[100] = " ";// input
 
         gets(data_input);
-
+    // cutting data input to several arrays by whitespaces
         sscanf( data_input, "%s %s %s %s %s", array1, array2, array3, array4, array5, array6, array7);
 
+// unite arrays, putting second arguments after the first.
         strcat(array2, array8);
         strcat(array2, array3);
         strcat(array2, array8);
@@ -40,7 +41,7 @@ data_input()
         strcat(array2, array7);
 
 
-        if (!strcoll(array1, "-a"))
+        if (!strcoll(array1, "-a")) //comparing arrays and CLA arguments
         {
             add_task(array2);
         }
@@ -70,8 +71,6 @@ void print_data()
     printf("===========================\n"
            "==========T=O=D=O==========\n"
            "===========================\n" );
-
-
 
     int i = 0;
     for(i=0; i<task_count; i++)

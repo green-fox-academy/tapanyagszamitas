@@ -124,6 +124,7 @@ system ("cls");
 void exit_program()
 {
  exit(0);
+ return 0;
 }
 
 void addition(char array0[], char array2[])
